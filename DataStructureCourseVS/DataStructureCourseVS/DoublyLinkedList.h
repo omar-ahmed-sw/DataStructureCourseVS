@@ -18,6 +18,8 @@ public:
 	clsDoublyLinkedList(clsNode* n);
 
 	void AppendNode(clsNode* n);
+	void PrependNode(clsNode* n);
+	void DeleteNode(uint32 k);
 	void DisplayLinkedList(void);
 	clsNode* KeyExist(uint32 k);
 

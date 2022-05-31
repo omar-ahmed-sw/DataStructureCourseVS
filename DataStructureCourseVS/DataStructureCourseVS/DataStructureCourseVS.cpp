@@ -34,12 +34,25 @@ int main() {
 	clsNode* node2 = new clsNode(2, 20);
 	clsNode* node3 = new clsNode(3, 30);
 	clsNode* node4 = new clsNode(4, 40);
-	
+	clsNode* node5 = new clsNode(5, 777);
+	clsNode* node6 = new clsNode(6, 888);
+	clsNode* node7 = new clsNode(6, 111);
+	clsNode* node8 = new clsNode(6, 999);
+
 	DoublyLinkedListInstance.DisplayLinkedList();
+
 	DoublyLinkedListInstance.AppendNode(node1);
 	DoublyLinkedListInstance.AppendNode(node2);
 	DoublyLinkedListInstance.AppendNode(node3);
 	DoublyLinkedListInstance.AppendNode(node4);
+
+
+	DoublyLinkedListInstance.PrependNode(node5);
+	DoublyLinkedListInstance.PrependNode(node6);
+
+	DoublyLinkedListInstance.PrependNode(node7);
+	DoublyLinkedListInstance.AppendNode(node8);
+
 	DoublyLinkedListInstance.DisplayLinkedList();
 	/*
 	//Singly linked list testing section

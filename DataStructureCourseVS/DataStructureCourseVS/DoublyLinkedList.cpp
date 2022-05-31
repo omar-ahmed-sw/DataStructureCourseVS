@@ -46,32 +46,78 @@ void clsDoublyLinkedList::AppendNode(clsNode* n)
 {
 	if (clsDoublyLinkedList::KeyExist(n->Key) != NULL)
 	{
-		std::cout << "The key entered already exists\n";
+		std::cout << "The key entered already exists, Can't Append this node\n";
 	}
 
-	//add node at the very start if linkedlist is empty
-	if (Head == NULL)
-	{
-		Head = n;
-		n->Next = NULL;
-		n->Previous = Head;
-	}
+	
 	else
 	{
-		clsNode* Temp = Head;
-
-		while (Temp->Next != NULL)
+		//add node at the very start if linkedlist is empty
+		if (Head == NULL)
 		{
-			Temp = Temp->Next;
+			Head = n;
+			n->Next = NULL;
+			n->Previous = Head;
+			std::cout << "Node appended successfully\n";
 		}
-		n->Previous = Temp;
-		Temp->Next = n;
-		n->Next = NULL;
-		std::cout << "Node appended successfully\n";
+		else
+		{
+			clsNode* TempNode = Head;
+
+			while (TempNode->Next != NULL)
+			{
+				TempNode = TempNode->Next;
+			}
+			n->Previous = TempNode;
+			TempNode->Next = n;
+			n->Next = NULL;
+
+			std::cout << "Node appended successfully\n";
+		}
 	}
 }
 
 
+void clsDoublyLinkedList::PrependNode(clsNode* n) 
+{
+	//if list is already empty, just stick it to the front
+	if (Head == NULL)
+	{
+		n->Previous = Head;
+		Head = n;
+		n->Next = NULL;
+	}
+
+	if (clsDoublyLinkedList::KeyExist(n->Key) != NULL)
+	{
+		std::cout << "The key entered already exist, Can't prepend this node\n";
+	}
+	else
+	{
+		//first make n points at the first element to keep this pointer
+		n->Next = Head;
+		//Make the previous pointer of node that head was pointing at points at n
+	    Head->Previous = n;
+		//Now head points at n
+		Head = n;
+		//now n previous points at head itself
+		n->Previous = Head;
+		std::cout << "The node prepended successfully\n";
+	}
+}
+
+void clsDoublyLinkedList::DeleteNode(uint32 k)
+{
+	if (Head == NULL)
+	{
+		std::cout << "The list is empty, Nothing to delete\n";
+	}
+
+	if (clsDoublyLinkedList::KeyExist(k) == NULL)
+	{
+		std::cout << "The key you entered doesn't exist\n";
+	}
+}
 
 void clsDoublyLinkedList::DisplayLinkedList(void)
 {
@@ -84,7 +130,7 @@ void clsDoublyLinkedList::DisplayLinkedList(void)
 
 	while (TempNode != NULL)
 	{
-		std::cout << "Node Address : " << TempNode 
+		std::cout << "\nNode Address : " << TempNode 
 			<< "\tPrevious Address : " << TempNode->Previous
 			<< "\tKey : " << TempNode->Key 
 			<< "\tData : " << TempNode->Data
