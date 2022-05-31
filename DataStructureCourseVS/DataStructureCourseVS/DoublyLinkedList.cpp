@@ -71,3 +71,25 @@ void clsDoublyLinkedList::AppendNode(clsNode* n)
 	}
 }
 
+
+
+void clsDoublyLinkedList::DisplayLinkedList(void)
+{
+	if (Head == NULL)
+	{
+		std::cout << "The linked list is empty, Nothing to display\n";
+	}
+
+	clsNode* TempNode = Head;
+
+	while (TempNode != NULL)
+	{
+		std::cout << "Node Address : " << TempNode 
+			<< "\tPrevious Address : " << TempNode->Previous
+			<< "\tKey : " << TempNode->Key 
+			<< "\tData : " << TempNode->Data
+			<< "\tNext Address : " << TempNode->Next << "\n";
+
+		TempNode = TempNode->Next;
+	}
+}

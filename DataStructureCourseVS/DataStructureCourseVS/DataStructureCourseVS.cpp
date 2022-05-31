@@ -16,6 +16,7 @@
 #include "StackHandler.h"
 #include "QueueHandler.h"
 #include "SinglyLinkedList.h"
+#include "DoublyLinkedList.h"
 
 using namespace std;
 
@@ -25,8 +26,22 @@ int main() {
 	clsStackHandler StackInstance;
 	clsQueueHandler QueueInstance;
 	clsSinglyLinkedList SinglyLinkedListInstance;
+	clsDoublyLinkedList DoublyLinkedListInstance;
 	clsNode NodeInstance;
 	
+	
+	clsNode* node1 = new clsNode(1, 10);
+	clsNode* node2 = new clsNode(2, 20);
+	clsNode* node3 = new clsNode(3, 30);
+	clsNode* node4 = new clsNode(4, 40);
+	
+	DoublyLinkedListInstance.DisplayLinkedList();
+	DoublyLinkedListInstance.AppendNode(node1);
+	DoublyLinkedListInstance.AppendNode(node2);
+	DoublyLinkedListInstance.AppendNode(node3);
+	DoublyLinkedListInstance.AppendNode(node4);
+	DoublyLinkedListInstance.DisplayLinkedList();
+	/*
 	//Singly linked list testing section
 	clsNode* node1 = new clsNode(1, 10);
 	clsNode* node2 = new clsNode(2, 20);
@@ -53,7 +68,7 @@ int main() {
 	SinglyLinkedListInstance.InsertNode(3, node6);
 	SinglyLinkedListInstance.DisplayLinkedList();
 	
-
+	*/
 	/*
 	//Queue testing section
 	QueueInstance.Enqueue(900);

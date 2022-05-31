@@ -3,43 +3,10 @@
 #include <iostream>
 #include "TypeDef.h"
 #include <math.h>
+#include "NodeHandler.h"
 
 
-
-//#include "NodeHandler.hpp"
 using namespace std;
-
-
-
-
-
-class clsNode
-{
-public:
-	//struct Node
-	//{
-	int16 Data;
-	uint16 Key;   //like an index for elements
-	clsNode* Next;
-	//	};
-
-	//clsNode node;
-
-	clsNode()
-	{
-		Key = 0U;
-		Data = 0;
-		Next = NULL;
-	}
-
-	clsNode(uint16 K, int16 D)
-	{
-		Key = K;
-		Data = D;
-	}
-
-};
-
 
 class clsSinglyLinkedList : public clsNode
 {
