@@ -50,9 +50,14 @@ int main() {
 	DoublyLinkedListInstance.PrependNode(node5);
 	DoublyLinkedListInstance.PrependNode(node6);
 
+	
+
 	DoublyLinkedListInstance.PrependNode(node7);
 	DoublyLinkedListInstance.AppendNode(node8);
 
+	DoublyLinkedListInstance.DisplayLinkedList();
+
+	DoublyLinkedListInstance.DeleteNode(2);
 	DoublyLinkedListInstance.DisplayLinkedList();
 	/*
 	//Singly linked list testing section

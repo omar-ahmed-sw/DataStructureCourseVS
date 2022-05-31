@@ -113,10 +113,27 @@ void clsDoublyLinkedList::DeleteNode(uint32 k)
 		std::cout << "The list is empty, Nothing to delete\n";
 	}
 
-	if (clsDoublyLinkedList::KeyExist(k) == NULL)
+	else
 	{
-		std::cout << "The key you entered doesn't exist\n";
+		if (clsDoublyLinkedList::KeyExist(k) == NULL)
+		{
+			std::cout << "The key you entered doesn't exist\n";
+		}
+		else
+		{
+			clsNode* TempNode = Head;
+
+			while ((TempNode->Next)->Key != k)
+			{
+				TempNode = TempNode->Next;
+			}
+			//works but doesn't look easy to read 
+			((TempNode->Next)->Next)->Previous = TempNode;
+			TempNode->Next = (TempNode->Next)->Next;
+			std::cout << "The node has been deleted successfully\n";
+		}
 	}
+	
 }
 
 void clsDoublyLinkedList::DisplayLinkedList(void)
