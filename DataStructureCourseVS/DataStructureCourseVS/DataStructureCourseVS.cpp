@@ -38,6 +38,8 @@ int main() {
 	clsNode* node6 = new clsNode(6, 888);
 	clsNode* node7 = new clsNode(6, 111);
 	clsNode* node8 = new clsNode(6, 999);
+	clsNode* node9 = new clsNode(3, 70);
+
 
 	DoublyLinkedListInstance.DisplayLinkedList();
 
@@ -58,7 +60,8 @@ int main() {
 	DoublyLinkedListInstance.DisplayLinkedList();
 
 	DoublyLinkedListInstance.DeleteNode(2);
-	DoublyLinkedListInstance.ChangeNode(1, 100);
+	DoublyLinkedListInstance.ChangeNode(8, 100);
+	DoublyLinkedListInstance.InsertNode(4, node9);
 	DoublyLinkedListInstance.DisplayLinkedList();
 	/*
 	//Singly linked list testing section

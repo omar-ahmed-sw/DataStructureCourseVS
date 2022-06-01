@@ -147,7 +147,7 @@ void clsDoublyLinkedList::ChangeNode(uint32 k, int32 d)
 	{
 		if (clsDoublyLinkedList::KeyExist(k) == NULL)
 		{
-			std::cout << "The key entered doesn't exist";
+			std::cout << "The key entered doesn't exist\n";
 		}
 
 		else
@@ -165,6 +165,42 @@ void clsDoublyLinkedList::ChangeNode(uint32 k, int32 d)
 	}
 }
 
+void clsDoublyLinkedList::InsertNode(uint32 k, clsNode* n)
+{
+	if (clsDoublyLinkedList::KeyExist(n->Key) != NULL)
+	{
+		std::cout << "Node with the same key already exist, Can't insert node\n";
+	}
+	else if (clsDoublyLinkedList::KeyExist(k) == NULL)
+	{
+		std::cout << "The key to insert after doesn't exist\n";
+	}
+
+	else
+	{
+		if (Head == NULL)
+		{
+			n->Previous = Head;
+			Head = n;
+			n->Next = NULL;
+		}
+		else
+		{
+			clsNode* TempNode = Head;
+
+			while (TempNode->Key != k)
+			{
+				TempNode = TempNode->Next;
+			}
+
+			n->Next = TempNode->Next;
+			(TempNode->Next)->Previous = n;
+			TempNode->Next = n;
+			n->Previous = TempNode;
+			std::cout << "Node inserted successfully\n";
+		}
+	}
+}
 void clsDoublyLinkedList::DisplayLinkedList(void)
 {
 	if (Head == NULL)
