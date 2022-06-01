@@ -21,6 +21,7 @@ public:
 	void PrependNode(clsNode* n);
 	void InsertNode(uint32 k, clsNode* n);
 	void DeleteNode(uint32 k);
+	void DisplayNode(uint32 K);
 	void DisplayLinkedList(void);
 	void ChangeNode(uint32 k, int32 d);
 	clsNode* KeyExist(uint32 k);

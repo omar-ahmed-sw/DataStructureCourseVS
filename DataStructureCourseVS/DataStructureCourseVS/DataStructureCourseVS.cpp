@@ -63,6 +63,7 @@ int main() {
 	DoublyLinkedListInstance.ChangeNode(8, 100);
 	DoublyLinkedListInstance.InsertNode(4, node9);
 	DoublyLinkedListInstance.DisplayLinkedList();
+	DoublyLinkedListInstance.DisplayNode(2);
 	/*
 	//Singly linked list testing section
 	clsNode* node1 = new clsNode(1, 10);

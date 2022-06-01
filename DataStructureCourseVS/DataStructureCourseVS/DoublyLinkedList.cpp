@@ -201,6 +201,37 @@ void clsDoublyLinkedList::InsertNode(uint32 k, clsNode* n)
 		}
 	}
 }
+void clsDoublyLinkedList::DisplayNode(uint32 k)
+{
+	if (Head == NULL)
+	{
+		std::cout << "The list is empty, Nothing to display\n";
+	}
+	else 
+	{
+		if(clsDoublyLinkedList::KeyExist(k) == NULL)
+		{
+			std::cout << "The key entered doesn't exist\n";
+		}
+
+		else
+		{
+			clsNode* TempNode = Head;
+
+			while (TempNode->Key != k)
+			{
+				TempNode = TempNode->Next;
+			}
+
+			std::cout << "\nNode Address : " << TempNode
+				<< "\tPrevious Address : " << TempNode->Previous
+				<< "\tKey : " << TempNode->Key
+				<< "\tData : " << TempNode->Data
+				<< "\tNext Address : " << TempNode->Next << "\n";
+		}
+
+	}
+}
 void clsDoublyLinkedList::DisplayLinkedList(void)
 {
 	if (Head == NULL)
