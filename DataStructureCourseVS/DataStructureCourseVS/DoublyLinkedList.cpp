@@ -136,6 +136,35 @@ void clsDoublyLinkedList::DeleteNode(uint32 k)
 	
 }
 
+void clsDoublyLinkedList::ChangeNode(uint32 k, int32 d)
+{
+	if (Head == NULL)
+	{
+		std::cout << "The list is empty\n";
+	}
+
+	else
+	{
+		if (clsDoublyLinkedList::KeyExist(k) == NULL)
+		{
+			std::cout << "The key entered doesn't exist";
+		}
+
+		else
+		{
+			clsNode* TempNode = Head;
+			while (TempNode->Key != k)
+			{
+				TempNode = TempNode->Next;
+			}
+			TempNode->Data = d;
+
+			std::cout << "Data changed successfully\n";
+		}
+
+	}
+}
+
 void clsDoublyLinkedList::DisplayLinkedList(void)
 {
 	if (Head == NULL)

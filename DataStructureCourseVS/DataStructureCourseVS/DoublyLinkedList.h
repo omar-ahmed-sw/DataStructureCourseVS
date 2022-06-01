@@ -21,6 +21,7 @@ public:
 	void PrependNode(clsNode* n);
 	void DeleteNode(uint32 k);
 	void DisplayLinkedList(void);
+	void ChangeNode(uint32 k, int32 d);
 	clsNode* KeyExist(uint32 k);
 
 protected:

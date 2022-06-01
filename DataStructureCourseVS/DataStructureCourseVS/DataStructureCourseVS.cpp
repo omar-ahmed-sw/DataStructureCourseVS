@@ -58,6 +58,7 @@ int main() {
 	DoublyLinkedListInstance.DisplayLinkedList();
 
 	DoublyLinkedListInstance.DeleteNode(2);
+	DoublyLinkedListInstance.ChangeNode(1, 100);
 	DoublyLinkedListInstance.DisplayLinkedList();
 	/*
 	//Singly linked list testing section
