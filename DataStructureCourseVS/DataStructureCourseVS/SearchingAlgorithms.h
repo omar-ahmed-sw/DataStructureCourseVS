@@ -11,7 +11,8 @@ class clsSearchingAlgorithms
 {
 public:
 
-	int32 LinearSearch(std::vector<int32>, int32 element);
+	int32 LinearSearch(std::vector<int32>DataArray, int32 element);
+	int32 BinarySearch(std::vector<int32>SortedDataArray, int32 element);
 
 protected:
 

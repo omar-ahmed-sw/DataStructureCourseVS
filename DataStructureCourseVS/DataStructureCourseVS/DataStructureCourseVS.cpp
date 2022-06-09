@@ -17,18 +17,21 @@
 #include "QueueHandler.h"
 #include "SinglyLinkedList.h"
 #include "DoublyLinkedList.h"
+#include "SearchingAlgorithms.h"
 
 using namespace std;
 
 int main() {
 
-
+	clsNode NodeInstance;
 	clsStackHandler StackInstance;
 	clsQueueHandler QueueInstance;
 	clsSinglyLinkedList SinglyLinkedListInstance;
 	clsDoublyLinkedList DoublyLinkedListInstance;
-	clsNode NodeInstance;
+	clsSearchingAlgorithms SearchingAlgorithmsInstance;
 	
+
+	std::vector <int32> Array = { 0,2,3,5,6,9,10,12,15,19,22,45,63,77,87,88,91,99,150 };
 	
 	clsNode* node1 = new clsNode(1, 10);
 	clsNode* node2 = new clsNode(2, 20);
@@ -64,6 +67,13 @@ int main() {
 	DoublyLinkedListInstance.InsertNode(4, node9);
 	DoublyLinkedListInstance.DisplayLinkedList();
 	DoublyLinkedListInstance.DisplayNode(2);
+	
+	int32 searchresult = SearchingAlgorithmsInstance.BinarySearch(Array, 100);
+	
+	std::cout << "\n\n" << "Searchresult = " << searchresult;
+	
+	
+	
 	/*
 	//Singly linked list testing section
 	clsNode* node1 = new clsNode(1, 10);
