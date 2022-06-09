@@ -26,11 +26,11 @@ clsNode* clsSinglyLinkedList::KeyExist(uint16 K)
 	//traverse until the last node which points to NULL
 	while (TempNode != NULL)
 	{
-		if (TempNode->Key == K)
+		if (TempNode->m_u32Key == K)
 		{
 			return TempNode;
 		}
-		TempNode = TempNode->Next;
+		TempNode = TempNode->m_pNext;
 	}
 	return NullNode;
 }
@@ -39,9 +39,9 @@ clsNode* clsSinglyLinkedList::KeyExist(uint16 K)
 void clsSinglyLinkedList::AppendNode(clsNode* n)
 {
 	//check first if the key exists in the linked list
-	if (clsSinglyLinkedList::KeyExist(n->Key) != NULL)
+	if (clsSinglyLinkedList::KeyExist(n->m_u32Key) != NULL)
 	{
-		std::cout << "The key you entered of " << n->Key << " already exists\n";
+		std::cout << "The key you entered of " << n->m_u32Key << " already exists\n";
 	}
 
 	else
@@ -50,7 +50,7 @@ void clsSinglyLinkedList::AppendNode(clsNode* n)
 		if (Head == NULL)
 		{
 			Head = n;
-			n->Next = NULL; //he doesn't add this one??
+			n->m_pNext = NULL; //he doesn't add this one??
 			std::cout << "Node appended successfully\n";
 		}
 
@@ -60,13 +60,13 @@ void clsSinglyLinkedList::AppendNode(clsNode* n)
 			clsNode* TempNode = Head;
 
 			//traverse the linked list until last node
-			while (TempNode->Next != NULL)
+			while (TempNode->m_pNext != NULL)
 			{
-				TempNode = TempNode->Next;
+				TempNode = TempNode->m_pNext;
 			}
 
-			TempNode->Next = n;
-			n->Next = NULL;   //he doesn't add this one??
+			TempNode->m_pNext = n;
+			n->m_pNext = NULL;   //he doesn't add this one??
 			std::cout << "Node appended successfully\n";
 		}
 	}
@@ -76,15 +76,15 @@ void clsSinglyLinkedList::AppendNode(clsNode* n)
 //add node at the start
 void clsSinglyLinkedList::PrependNode(clsNode* n)
 {
-	if (clsSinglyLinkedList::KeyExist(n->Key) != NULL)
+	if (clsSinglyLinkedList::KeyExist(n->m_u32Key) != NULL)
 	{
-		std::cout << "The key you entered of " << n->Key << " already exists\n";
+		std::cout << "The key you entered of " << n->m_u32Key << " already exists\n";
 	}
 
 	else
 	{
 		//first make n points at the first element to keep this pointer
-		n->Next = Head;
+		n->m_pNext = Head;
 		//Then make head points at new element as it's the first one now
 		Head = n;
 		std::cout << "Node prepended successfully\n";
@@ -103,9 +103,9 @@ void clsSinglyLinkedList::DeleteNode(uint16 K)
 		clsNode* TempNode = Head;
 
 		//if the node is the evry first one
-		if (TempNode->Key == K)
+		if (TempNode->m_u32Key == K)
 		{
-			Head = TempNode->Next;
+			Head = TempNode->m_pNext;
 			std::cout << "The node of key " << K << " has been deleted successfully\n";
 
 		}
@@ -113,12 +113,12 @@ void clsSinglyLinkedList::DeleteNode(uint16 K)
 		else
 		{
 			//keep checking if the next one is the key we are looking for
-			while ((TempNode->Next)->Key != K)
+			while ((TempNode->m_pNext)->m_u32Key != K)
 			{
-				TempNode = TempNode->Next;
+				TempNode = TempNode->m_pNext;
 			}
 			//make the previous one to this node points at the next one of this node as bypass
-			TempNode->Next = (TempNode->Next)->Next;
+			TempNode->m_pNext = (TempNode->m_pNext)->m_pNext;
 			std::cout << "The node of key " << K << " has been deleted successfully\n";
 		}
 	}
@@ -137,19 +137,19 @@ void clsSinglyLinkedList::InsertNode(uint16 K, clsNode* n)
 	else
 	{
 		//if the key of this node already exist
-		if (clsSinglyLinkedList::KeyExist(n->Key) != NULL)
+		if (clsSinglyLinkedList::KeyExist(n->m_u32Key) != NULL)
 		{
-			std::cout << "The key you entered of " << n->Key << " already exists\n";
+			std::cout << "The key you entered of " << n->m_u32Key << " already exists\n";
 		}
 		else
 		{
 			clsNode* TempNode = Head;
-			while (TempNode->Key != K)
+			while (TempNode->m_u32Key != K)
 			{
-				TempNode = TempNode->Next;
+				TempNode = TempNode->m_pNext;
 			}
-			n->Next = TempNode->Next;
-			TempNode->Next = n;
+			n->m_pNext = TempNode->m_pNext;
+			TempNode->m_pNext = n;
 		}
 	}
 }
@@ -165,12 +165,12 @@ void clsSinglyLinkedList::ChangeNode(uint16 K, int16 D)
 	else
 	{
 		clsNode* TempNode = Head;
-		while (TempNode->Key != K)
+		while (TempNode->m_u32Key != K)
 		{
-			TempNode = TempNode->Next;
+			TempNode = TempNode->m_pNext;
 		}
 
-		TempNode->Data = D;
+		TempNode->m_i32Data = D;
 		std::cout << "Node changed successfully\n";
 	}
 }
@@ -184,12 +184,12 @@ void clsSinglyLinkedList::DisplayNode(uint16 K)
 	else
 	{
 		clsNode* TempNode = Head;
-		while (TempNode->Key != K)
+		while (TempNode->m_u32Key != K)
 		{
-			TempNode = TempNode->Next;
+			TempNode = TempNode->m_pNext;
 		}
-		std::cout << "Node address: " << TempNode << "\tNode key: " << TempNode->Key
-			<< "\tNode data: " << TempNode->Data << "\tNode next:" << TempNode->Next
+		std::cout << "Node address: " << TempNode << "\tNode key: " << TempNode->m_u32Key
+			<< "\tNode data: " << TempNode->m_i32Data << "\tNode next:" << TempNode->m_pNext
 			<< "\n";
 	}
 }
@@ -209,11 +209,11 @@ void clsSinglyLinkedList::DisplayLinkedList(void)
 
 		while (TempNode != NULL)
 		{
-			std::cout << "Node address: " << TempNode << "\tNode key: " << TempNode->Key
-				<< "\tNode data: " << TempNode->Data << "\tNode next:" << TempNode->Next
+			std::cout << "Node address: " << TempNode << "\tNode key: " << TempNode->m_u32Key
+				<< "\tNode data: " << TempNode->m_i32Data << "\tNode next:" << TempNode->m_pNext
 				<< "\n";
 
-			TempNode = TempNode->Next;
+			TempNode = TempNode->m_pNext;
 		}
 	}
 }

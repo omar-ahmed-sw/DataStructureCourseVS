@@ -148,6 +148,7 @@
     <ClInclude Include="DoublyLinkedList.h" />
     <ClInclude Include="NodeHandler.h" />
     <ClInclude Include="QueueHandler.h" />
+    <ClInclude Include="SearchingAlgorithms.h" />
     <ClInclude Include="SinglyLinkedList.h" />
     <ClInclude Include="StackHandler.h" />
     <ClInclude Include="stdafx.h" />
@@ -158,6 +159,7 @@
     <ClCompile Include="DataStructureCourseVS.cpp" />
     <ClCompile Include="DoublyLinkedList.cpp" />
     <ClCompile Include="QueueHandler.cpp" />
+    <ClCompile Include="SearchingAlgorithms.cpp" />
     <ClCompile Include="SinglyLinkedList.cpp" />
     <ClCompile Include="StackHandler.cpp" />
     <ClCompile Include="stdafx.cpp">

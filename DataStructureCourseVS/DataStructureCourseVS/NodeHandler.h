@@ -7,23 +7,23 @@
 class clsNode
 {
 public:
-	int32 Data;
-	uint32 Key;
-	clsNode* Previous; //only being used in doubly linked list
-	clsNode* Next;
+	int32 m_i32Data;
+	uint32 m_u32Key;
+	clsNode* m_pPrevious; //only being used in doubly linked list
+	clsNode* m_pNext;
 
 	clsNode()
 	{
-		Data = 0;
-		Key = 0U;
-		Previous = NULL;
-		Next = NULL;
+		m_i32Data = 0;
+		m_u32Key = 0U;
+		m_pPrevious = NULL;
+		m_pNext = NULL;
 	}
 
 	clsNode(uint32 k, int32 d)
 	{
-		Key = k;
-		Data = d;
+		m_u32Key = k;
+		m_i32Data = d;
 	}
 
 };
