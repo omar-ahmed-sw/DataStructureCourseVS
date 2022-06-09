@@ -20,10 +20,10 @@ public:
 		Next = NULL;
 	}
 
-	clsNode(uint32 K, int32 D)
+	clsNode(uint32 k, int32 d)
 	{
-		Key = K;
-		Data = D;
+		Key = k;
+		Data = d;
 	}
 
 };
