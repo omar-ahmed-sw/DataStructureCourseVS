@@ -11,7 +11,7 @@ void clsSortingAlgorithms::Swap(int32* pi32Num1, int32* pi32Num2)
 }
 
 
-
+//Selection sorting is O(n^2) ***worst when it's a large array*****
 void clsSortingAlgorithms::SelectionSort(std::vector<int32> DataArray)
 {
 	for (uint32 i = 0U; i < DataArray.size(); i++)
