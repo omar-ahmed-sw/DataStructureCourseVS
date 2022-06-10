@@ -3,6 +3,18 @@
 
 
 
+/*
+
+//SEARCHING ALGORITHMS 
+they are mainly two basic algorithms : Sequentional (like linear searching) and Interval (like binary searching)
+
+Linear mostly used when data aren't sorted and there is no way to limit the subarray of searching at a time O(n)
+
+Binary is used with sorted arrays so we can reduce the subarray that we search in everytime by half O(logn)
+
+*/
+
+
 int32 clsSearchingAlgorithms::LinearSearch(std::vector<int32> DataArray, int32 element)
 {
 	int32 i32NotFound = -1;
@@ -26,13 +38,14 @@ int32 clsSearchingAlgorithms::BinarySearch(std::vector<int32>SortedDataArray, in
 
 	while (u32LeftIndex <= u32RightIndex)
 	{
-		u32LeftIndex = (element > SortedDataArray[u32MidIndex]) ? (u32MidIndex + 1U) : (u32LeftIndex);
-		u32RightIndex = (element > SortedDataArray[u32MidIndex]) ? (u32RightIndex) : (u32MidIndex - 1U);
-		u32MidIndex = (element > SortedDataArray[u32MidIndex]) ? (u32LeftIndex + ((u32RightIndex - u32LeftIndex)  /2U)) : (u32RightIndex - ((u32RightIndex - u32LeftIndex) / 2U));
 		if (SortedDataArray[u32MidIndex] == element)
 		{
 			return u32MidIndex;
-		}	
+		}
+		u32LeftIndex = (element > SortedDataArray[u32MidIndex]) ? (u32MidIndex + 1U) : (u32LeftIndex);
+		u32RightIndex = (element > SortedDataArray[u32MidIndex]) ? (u32RightIndex) : (u32MidIndex - 1U);
+		u32MidIndex = (element > SortedDataArray[u32MidIndex]) ? (u32LeftIndex + ((u32RightIndex - u32LeftIndex)  /2U)) : (u32RightIndex - ((u32RightIndex - u32LeftIndex) / 2U));
+	
 	}
 
 	return i32NotFound;

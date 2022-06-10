@@ -18,6 +18,7 @@
 #include "SinglyLinkedList.h"
 #include "DoublyLinkedList.h"
 #include "SearchingAlgorithms.h"
+#include "SortingAlgorithms.h"
 
 using namespace std;
 
@@ -29,9 +30,10 @@ int main() {
 	clsSinglyLinkedList SinglyLinkedListInstance;
 	clsDoublyLinkedList DoublyLinkedListInstance;
 	clsSearchingAlgorithms SearchingAlgorithmsInstance;
+	clsSortingAlgorithms SortingAlgorithmsInstance;
 	
 
-	std::vector <int32> Array = { 0,2,3,5,6,9,10,12,15,19,22,45,63,77,87,88,91,99,150 };
+	std::vector <int32> Array = { 9,-3,1,0,5,-10,6,1,0,4,63,4,-2,-7,10,11,0,17,-6 };
 	
 	clsNode* node1 = new clsNode(1, 10);
 	clsNode* node2 = new clsNode(2, 20);
@@ -68,9 +70,12 @@ int main() {
 	DoublyLinkedListInstance.DisplayLinkedList();
 	DoublyLinkedListInstance.DisplayNode(2);
 	
-	int32 searchresult = SearchingAlgorithmsInstance.BinarySearch(Array, 100);
-	
-	std::cout << "\n\n" << "Searchresult = " << searchresult;
+	//int32 searchresult = SearchingAlgorithmsInstance.BinarySearch(Array, 3);
+
+	SortingAlgorithmsInstance.SelectionSort(Array);
+
+
+	//std::cout << "\n\n" << "Searchresult = " << searchresult;
 	
 	
 	
