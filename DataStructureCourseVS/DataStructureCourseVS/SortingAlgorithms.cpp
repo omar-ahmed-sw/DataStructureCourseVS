@@ -35,3 +35,28 @@ void clsSortingAlgorithms::SelectionSort(std::vector<int32> DataArray)
 
 	//I can make it return a std::vector<int32> as a sorted array
 }
+
+
+
+void clsSortingAlgorithms::InsertionSort(std::vector<int32> DataArray)
+{
+	for (uint32 i = 1U; i < DataArray.size(); i++)
+	{
+		for (int32 j = i - 1; j >= 0; j--)
+		{
+			if (DataArray[j] > DataArray[j+1])
+			{
+				Swap(&DataArray[j], &DataArray[j+1]);
+			}
+			else
+			{
+				break;
+			}
+		}
+	}
+
+	for (uint32 i = 0U; i < DataArray.size(); i++)
+	{
+		std::cout << DataArray[i] << "   ";
+	}
+}
