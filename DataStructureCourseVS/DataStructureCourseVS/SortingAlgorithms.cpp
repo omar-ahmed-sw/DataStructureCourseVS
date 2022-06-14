@@ -38,6 +38,11 @@ void clsSortingAlgorithms::SelectionSort(std::vector<int32> DataArray)
 
 
 
+//Insertion sort is based on having a subarray that's sorted on the left hand side
+//and everytime you pick next element in line, go put it where it should be in sorted subarray on the left
+//by shifting all the elements to accomodate that new one in its right position. until last element 
+//TIME COMPLEXITY : O(n^2)
+
 void clsSortingAlgorithms::InsertionSort(std::vector<int32> DataArray)
 {
 	for (uint32 i = 1U; i < DataArray.size(); i++)
@@ -55,6 +60,36 @@ void clsSortingAlgorithms::InsertionSort(std::vector<int32> DataArray)
 		}
 	}
 
+	/*displaying for debugging*/
+	for (uint32 i = 0U; i < DataArray.size(); i++)
+	{
+		std::cout << DataArray[i] << "   ";
+	}
+}
+
+
+//bubble sort is based on swapping every 2 adjecenet elemnts if right side < left side keep doing that until end of array, for number of array elements times
+//TIME COMPLEXITY : O(n^2)
+void clsSortingAlgorithms::BubbleSort (std::vector <int32> DataArray)
+{
+	for (uint32 i = 0U; i < DataArray.size(); i++)
+	{
+		bool Flag = false;
+		for (uint32 j = 0U; j < DataArray.size() - 1U - i; j++)      //-i to discount the right side element/s which have been sorted already and no need to repeat them again 
+		{
+			if (DataArray[j] > DataArray[j + 1])
+			{
+				Swap(&DataArray[j], &DataArray[j + 1]);
+				Flag = true;
+			}
+		}
+		if(!Flag)   //optimising, to reduce time, if we didn't swap at least once, so no need to continue next time as it's sorted already
+		{
+			break;
+		}
+	}
+
+	/*displaying for debugging*/
 	for (uint32 i = 0U; i < DataArray.size(); i++)
 	{
 		std::cout << DataArray[i] << "   ";
