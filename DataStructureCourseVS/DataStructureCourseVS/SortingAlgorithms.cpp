@@ -83,7 +83,7 @@ void clsSortingAlgorithms::BubbleSort (std::vector <int32> DataArray)
 				Flag = true;
 			}
 		}
-		if(!Flag)   //optimising, to reduce time, if we didn't swap at least once, so no need to continue next time as it's sorted already
+		if(!Flag)   //optimising, to reduce time, if we didn't swap at least once in the last iteration, so no need to continue next time as it's sorted already
 		{
 			break;
 		}
@@ -94,4 +94,59 @@ void clsSortingAlgorithms::BubbleSort (std::vector <int32> DataArray)
 	{
 		std::cout << DataArray[i] << "   ";
 	}
+}
+
+
+//Merge sort is dividing conqure algorithm
+//Time Complexity : O(nlog(n))
+void clsSortingAlgorithms::MergeSort(std::vector<int32> DataArray, uint32 StartIndex, uint32 EndIndex)
+{
+	if (StartIndex != EndIndex)
+	{
+		uint32 MidIndex = (StartIndex + EndIndex) / 2U;       //to get mid index when it's on left side or right side
+		MergeSort(DataArray, StartIndex, MidIndex);
+		MergeSort(DataArray, MidIndex + 1U, EndIndex);
+		Merge(DataArray, StartIndex, MidIndex, EndIndex);
+	}
+
+}
+
+void clsSortingAlgorithms::Merge(std::vector<int32> DataArray, uint32 StartIndex,uint32 MidIndex, uint32 EndIndex)
+{
+	uint32 LeftIndex = StartIndex;
+	uint32 RightIndex = MidIndex + 1U;
+	uint32 TempIndex = 0U;
+	std::vector <int32> TempArray;
+
+
+	while (LeftIndex <= MidIndex && RightIndex <= EndIndex)
+	{
+		if (DataArray[LeftIndex] < DataArray[RightIndex])
+		{
+			TempArray[TempIndex] = DataArray[LeftIndex];
+			LeftIndex++;
+		}
+		else
+		{
+			TempArray[TempIndex] = DataArray[RightIndex];
+			RightIndex++;
+		}
+		TempIndex++;
+	}
+
+	while (LeftIndex <= MidIndex)
+	{
+		TempArray[TempIndex] = DataArray[LeftIndex];
+		LeftIndex++;
+		TempIndex++;
+	}
+
+	while (RightIndex <= EndIndex)
+	{
+		TempArray[TempIndex] = DataArray[RightIndex];
+		RightIndex++;
+		TempIndex++;
+	}
+
+	//then overwrite the original array with temparray
 }
