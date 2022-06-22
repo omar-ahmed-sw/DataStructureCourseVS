@@ -109,6 +109,13 @@ void clsSortingAlgorithms::MergeSort(std::vector<int32> DataArray, uint32 StartI
 		Merge(DataArray, StartIndex, MidIndex, EndIndex);
 	}
 
+
+
+	/*displaying for debugging*/
+	for (uint32 i = 0U; i < DataArray.size(); i++)
+	{
+		std::cout << DataArray[i] << "   ";
+	}
 }
 
 void clsSortingAlgorithms::Merge(std::vector<int32> DataArray, uint32 StartIndex,uint32 MidIndex, uint32 EndIndex)
@@ -148,5 +155,8 @@ void clsSortingAlgorithms::Merge(std::vector<int32> DataArray, uint32 StartIndex
 		TempIndex++;
 	}
 
-	//then overwrite the original array with temparray
+	for (uint32 i = StartIndex; i <= EndIndex; i++)
+	{
+		DataArray[i] = TempArray[i];
+	}
 }

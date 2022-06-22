@@ -72,7 +72,7 @@ int main() {
 	
 	//int32 searchresult = SearchingAlgorithmsInstance.BinarySearch(Array, 3);
 
-	SortingAlgorithmsInstance.BubbleSort(Array);
+	SortingAlgorithmsInstance.MergeSort(Array, 0,29);
 
 
 	//std::cout << "\n\n" << "Searchresult = " << searchresult;
