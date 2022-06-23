@@ -33,7 +33,8 @@ int main() {
 	clsSortingAlgorithms SortingAlgorithmsInstance;
 	
 
-	std::vector <int32> Array = { 9,-3,1,0,5,-10,6,1,0,4,63,4,-2,-7,10,11,0,17,-6,3,8,12,-66,41,11,-13,-2,24,29,-31 };
+	//std::vector <int32> Array = { 9,-3,1,0,5,-10,6,1,0,4,63,4,-2,-7,10,11,0,17,-6,3,8,12,-66,41,11,-13,-2,24,29,-31 };
+	std::vector <int32> Array = {9,7,3,6,2};
 	
 	clsNode* node1 = new clsNode(1, 10);
 	clsNode* node2 = new clsNode(2, 20);
@@ -73,6 +74,12 @@ int main() {
 	//int32 searchresult = SearchingAlgorithmsInstance.BinarySearch(Array, 3);
 
 	SortingAlgorithmsInstance.MergeSort(Array, 0,29);
+
+	for (uint32 i = 0U; i < Array.size(); i++)
+	{
+		std::cout << Array[i] << "   ";
+	}
+
 
 
 	//std::cout << "\n\n" << "Searchresult = " << searchresult;

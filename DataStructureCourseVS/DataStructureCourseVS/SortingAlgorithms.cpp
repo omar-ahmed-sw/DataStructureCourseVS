@@ -101,7 +101,8 @@ void clsSortingAlgorithms::BubbleSort (std::vector <int32> DataArray)
 //Time Complexity : O(nlog(n))
 void clsSortingAlgorithms::MergeSort(std::vector<int32> DataArray, uint32 StartIndex, uint32 EndIndex)
 {
-	if (StartIndex != EndIndex)
+	//bool isSorted = false;
+	if (StartIndex < EndIndex)
 	{
 		uint32 MidIndex = (StartIndex + EndIndex) / 2U;       //to get mid index when it's on left side or right side
 		MergeSort(DataArray, StartIndex, MidIndex);
@@ -109,54 +110,57 @@ void clsSortingAlgorithms::MergeSort(std::vector<int32> DataArray, uint32 StartI
 		Merge(DataArray, StartIndex, MidIndex, EndIndex);
 	}
 
+ /*//debugging display
 
-
-	/*displaying for debugging*/
-	for (uint32 i = 0U; i < DataArray.size(); i++)
+	if (isSorted)
 	{
-		std::cout << DataArray[i] << "   ";
+		for (uint32 i = 0U; i < DataArray.size(); i++)
+		{
+			std::cout << DataArray[i] << "   ";
+		}
 	}
+
+*/
 }
 
 void clsSortingAlgorithms::Merge(std::vector<int32> DataArray, uint32 StartIndex,uint32 MidIndex, uint32 EndIndex)
 {
 	uint32 LeftIndex = StartIndex;
-	uint32 RightIndex = MidIndex + 1U;
+	//uint32 RightIndex = (MidIndex == LeftIndex) ? (MidIndex) : (MidIndex + 1U) ;
+	uint32 RightIndex =  (MidIndex + 1U);
 	uint32 TempIndex = 0U;
 	std::vector <int32> TempArray;
 
 
 	while (LeftIndex <= MidIndex && RightIndex <= EndIndex)
 	{
-		if (DataArray[LeftIndex] < DataArray[RightIndex])
+		if (DataArray[LeftIndex] <= DataArray[RightIndex])
 		{
-			TempArray[TempIndex] = DataArray[LeftIndex];
+			TempArray.push_back( DataArray[LeftIndex]);
 			LeftIndex++;
 		}
 		else
 		{
-			TempArray[TempIndex] = DataArray[RightIndex];
+			TempArray.push_back(DataArray[RightIndex]);
 			RightIndex++;
 		}
-		TempIndex++;
 	}
 
 	while (LeftIndex <= MidIndex)
 	{
-		TempArray[TempIndex] = DataArray[LeftIndex];
+		TempArray.push_back(DataArray[LeftIndex]);
 		LeftIndex++;
-		TempIndex++;
 	}
 
 	while (RightIndex <= EndIndex)
 	{
-		TempArray[TempIndex] = DataArray[RightIndex];
+		TempArray.push_back(DataArray[RightIndex]);
 		RightIndex++;
-		TempIndex++;
 	}
 
 	for (uint32 i = StartIndex; i <= EndIndex; i++)
 	{
-		DataArray[i] = TempArray[i];
+		DataArray[i] = TempArray[TempIndex];
+		TempIndex++;
 	}
 }
