@@ -15,8 +15,12 @@ public:
 	void SelectionSort(std::vector<int32> DataArray);
 	void InsertionSort(std::vector<int32> DataArray);
 	void BubbleSort(std::vector<int32> DataArray);
-	void MergeSort(std::vector<int32> DataArray, uint32 StartIndex, uint32 EndIndex);
-	void Merge(std::vector<int32> DataArray,uint32 StartIndex,uint32 MidIndex,uint32 EndIndex);
+
+	void MergeSort(int32 DataArray[], uint32 StartIndex, uint32 EndIndex);
+	void Merge(int32 DataArray[],uint32 StartIndex,uint32 MidIndex,uint32 EndIndex);
+	
+	void QuickSort(int32 DataArray[], uint32 StartIndex, uint32 EndIndex);
+	uint32 QuickPartitioning(int32 DataArray[], uint32 StartIndex, uint32 EndIndex);
         
 
 protected:

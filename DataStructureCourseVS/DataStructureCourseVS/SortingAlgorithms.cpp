@@ -99,7 +99,7 @@ void clsSortingAlgorithms::BubbleSort (std::vector <int32> DataArray)
 
 //Merge sort is dividing conqure algorithm
 //Time Complexity : O(nlog(n))
-void clsSortingAlgorithms::MergeSort(std::vector<int32> DataArray, uint32 StartIndex, uint32 EndIndex)
+void clsSortingAlgorithms::MergeSort(int32 DataArray[], uint32 StartIndex, uint32 EndIndex)
 {
 	//bool isSorted = false;
 	if (StartIndex < EndIndex)
@@ -123,7 +123,7 @@ void clsSortingAlgorithms::MergeSort(std::vector<int32> DataArray, uint32 StartI
 */
 }
 
-void clsSortingAlgorithms::Merge(std::vector<int32> DataArray, uint32 StartIndex,uint32 MidIndex, uint32 EndIndex)
+void clsSortingAlgorithms::Merge(int32 DataArray[], uint32 StartIndex,uint32 MidIndex, uint32 EndIndex)
 {
 	uint32 LeftIndex = StartIndex;
 	//uint32 RightIndex = (MidIndex == LeftIndex) ? (MidIndex) : (MidIndex + 1U) ;
@@ -163,4 +163,48 @@ void clsSortingAlgorithms::Merge(std::vector<int32> DataArray, uint32 StartIndex
 		DataArray[i] = TempArray[TempIndex];
 		TempIndex++;
 	}
+}
+
+
+void clsSortingAlgorithms::QuickSort(int32 DataArray[], uint32 StartIndex, uint32 EndIndex)
+{
+	if (StartIndex < EndIndex)
+	{
+		uint32 Pivot = QuickPartitioning(DataArray, StartIndex, EndIndex);
+		if (Pivot > 0U)                   
+		{
+			QuickSort(DataArray, StartIndex, (Pivot - 1U));
+		}
+		if (Pivot < (EndIndex + 1U))
+		{
+			QuickSort(DataArray, (Pivot + 1U), EndIndex);
+		}
+	}
+}
+
+uint32 clsSortingAlgorithms::QuickPartitioning(int32 DataArray[], uint32 StartIndex, uint32 EndIndex)
+{
+	int32 Pivot = DataArray[EndIndex];
+	uint32 PivotIndex = StartIndex;
+
+	for (uint32 i = StartIndex; i < EndIndex  ; i++)
+	{
+		if (DataArray[i] < Pivot)
+		{
+			Swap(&DataArray[i], &DataArray[PivotIndex]);
+			PivotIndex++;
+		}
+
+	}
+	Swap(&DataArray[PivotIndex], &DataArray[EndIndex]);    //PUTTING THE PIVOT WHERE IT SHOULD BE AFTER KNOWING WHERE PIVOT INDEX SHOULD BE
+
+	/*DEBUGGING DISPLAY*/
+/*
+	for (uint32 i = 0U; i <= 4U; i++)
+	{
+		std::cout << DataArray[i] << "   ";
+	}
+	std::cout << "\n\n";
+	*/
+	return PivotIndex;
 }
