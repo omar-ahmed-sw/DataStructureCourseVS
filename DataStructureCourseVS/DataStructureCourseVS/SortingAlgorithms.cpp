@@ -170,14 +170,14 @@ void clsSortingAlgorithms::QuickSort(int32 DataArray[], uint32 StartIndex, uint3
 {
 	if (StartIndex < EndIndex)
 	{
-		uint32 Pivot = QuickPartitioning(DataArray, StartIndex, EndIndex);
-		if (Pivot > 0U)                   
+		uint32 PivotIndex = QuickPartitioning(DataArray, StartIndex, EndIndex);
+		if (PivotIndex > 0U)                   
 		{
-			QuickSort(DataArray, StartIndex, (Pivot - 1U));
+			QuickSort(DataArray, StartIndex, (PivotIndex - 1U));
 		}
-		if (Pivot < (EndIndex + 1U))
+		if (PivotIndex< (EndIndex + 1U))
 		{
-			QuickSort(DataArray, (Pivot + 1U), EndIndex);
+			QuickSort(DataArray, (PivotIndex + 1U), EndIndex);
 		}
 	}
 }
@@ -207,4 +207,35 @@ uint32 clsSortingAlgorithms::QuickPartitioning(int32 DataArray[], uint32 StartIn
 	std::cout << "\n\n";
 	*/
 	return PivotIndex;
+}
+
+
+void clsSortingAlgorithms::CountingSort(std::vector<int32>& DataArray, uint32 ArraySize, uint32 ArrayRange)
+{
+	std::vector<int32> OutputArray;
+	int32 CountArray[9] = {0};
+
+	for (uint32 i = 0U; i < DataArray.size(); i++)
+	{
+		CountArray[DataArray[i]]++;
+	}
+
+
+//	uint32 OutputArrayindex = 0U;
+
+	for (uint32 i = 0U; i < (ArrayRange); i++)        //size could be array range here
+	{
+		for (uint32 j = 0U; j < CountArray[i]; j++)
+		{
+			OutputArray.push_back(i);
+		//	OutputArrayindex++;
+		}
+	}
+	
+	std::cout  << "\n\n";
+	/*debugging display*/
+	for (uint32 i = 0U; i < (ArraySize); i++)
+	{
+		std::cout << OutputArray[i] << "   ";
+	}
 }

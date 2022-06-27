@@ -21,6 +21,8 @@ public:
 	
 	void QuickSort(int32 DataArray[], uint32 StartIndex, uint32 EndIndex);
 	uint32 QuickPartitioning(int32 DataArray[], uint32 StartIndex, uint32 EndIndex);
+
+	void CountingSort(std::vector<int32>& DataArray, uint32 ArraySize, uint32 ArrayRange);
         
 
 protected:
