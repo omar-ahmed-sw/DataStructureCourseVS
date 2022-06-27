@@ -210,12 +210,12 @@ uint32 clsSortingAlgorithms::QuickPartitioning(int32 DataArray[], uint32 StartIn
 }
 
 
-void clsSortingAlgorithms::CountingSort(std::vector<int32>& DataArray, uint32 ArraySize, uint32 ArrayRange)
+void clsSortingAlgorithms::CountingSort(int32 DataArray[], uint32 ArraySize, uint32 ArrayRange)
 {
 	std::vector<int32> OutputArray;
 	int32 CountArray[9] = {0};
 
-	for (uint32 i = 0U; i < DataArray.size(); i++)
+	for (uint32 i = 0U; i < ArraySize; i++)
 	{
 		CountArray[DataArray[i]]++;
 	}
