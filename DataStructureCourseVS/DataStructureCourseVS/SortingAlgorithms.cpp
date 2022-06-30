@@ -239,3 +239,9 @@ void clsSortingAlgorithms::CountingSort(int32 DataArray[], uint32 ArraySize, uin
 		std::cout << OutputArray[i] << "   ";
 	}
 }
+
+
+void clsSortingAlgorithms::MyCountingSort(int32 DataArray[], uint32 ArraySize, uint32 ArrayRange)
+{
+	std::vector<int32> CountingArray;
+}
