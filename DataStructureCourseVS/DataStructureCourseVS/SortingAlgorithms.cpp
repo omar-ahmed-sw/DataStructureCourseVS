@@ -209,12 +209,14 @@ uint32 clsSortingAlgorithms::QuickPartitioning(int32 DataArray[], uint32 StartIn
 	return PivotIndex;
 }
 
-
-void clsSortingAlgorithms::CountingSort(int32 DataArray[], uint32 ArraySize, uint32 ArrayRange)
+//not suitable for arrays they have bigger value data and small size, as we create a very large array of counting for only a few elements to sort
+void clsSortingAlgorithms::CountingSort(int32 DataArray[], uint32 ArraySize, const uint32 ArrayRange)
 {
+	//const uint32 Range = 9;
 	std::vector<int32> OutputArray;
 	int32 CountArray[9] = {0};
 
+	//fill the count array with frequency of each element 
 	for (uint32 i = 0U; i < ArraySize; i++)
 	{
 		CountArray[DataArray[i]]++;

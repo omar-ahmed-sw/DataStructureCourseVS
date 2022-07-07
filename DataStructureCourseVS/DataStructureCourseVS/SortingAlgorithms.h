@@ -24,7 +24,7 @@ public:
 
 	void CountingSort(int32 DataArray[], uint32 ArraySize, uint32 ArrayRange);
 
-	void MyCountingSort(int32 DataArray[], uint32 ArraySize, uint32 ArrayRange);
+	void MyCountingSort(int32 DataArray[], uint32 ArraySize, const uint32 ArrayRange);
         
 
 protected:
