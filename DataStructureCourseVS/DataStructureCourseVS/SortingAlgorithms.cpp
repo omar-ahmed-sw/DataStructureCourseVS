@@ -10,6 +10,22 @@ void clsSortingAlgorithms::Swap(int32* pi32Num1, int32* pi32Num2)
 	*pi32Num2 = i32Temp;
 }
 
+uint32 clsSortingAlgorithms::FindMax(std::vector<uint32> DataArray)
+{
+	uint32 Max = 0U;
+	for (uint32 i = 0U; i < DataArray.size(); i++)
+	{
+		Max = (DataArray[i] > Max) ? (DataArray[i]) : (Max);
+	}
+
+	return Max;
+}
+
+uint32 clsSortingAlgorithms::NumberofDigits(uint32 Number)
+{
+	return (uint32)(log10(Number) + 1U);
+}
+
 
 //Selection sorting is O(n^2) ***worst when it's a large array*****
 void clsSortingAlgorithms::SelectionSort(std::vector<int32> DataArray)
@@ -246,4 +262,28 @@ void clsSortingAlgorithms::CountingSort(int32 DataArray[], uint32 ArraySize, con
 void clsSortingAlgorithms::MyCountingSort(int32 DataArray[], uint32 ArraySize, uint32 ArrayRange)
 {
 	std::vector<int32> CountingArray;
+}
+
+
+void clsSortingAlgorithms::RadixSort(std::vector<uint32> DataArray, uint32 ArraySize)
+{
+	std::vector <std::vector <uint32>> QueuesArray(10);
+
+	uint32 Max = clsSortingAlgorithms::FindMax(DataArray);
+	uint32 Digits = clsSortingAlgorithms::NumberofDigits(Max);
+
+
+	for (uint32 i = 0U; i < DataArray.size(); i++)
+	{
+		uint32 unit = DataArray[i] % 10U;
+		QueuesArray[unit].push_back(DataArray[i]);
+	}
+
+	for (uint32 i = 0U; i < DataArray.size(); i++)
+	{
+		static uint32 QueueIndex = 0U;
+
+
+	}
+
 }
