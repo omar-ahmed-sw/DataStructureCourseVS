@@ -4,14 +4,14 @@
 
 void clsStackHandler::DoInitialise(void)
 {
-	for (uint16 i = 0U; i < 100U; i++)
+	for (uint16_t i = 0U; i < 100U; i++)
 	{
 		clsStackHandler::StackArray[i] = 0;
 	}
 }
 
 
-void clsStackHandler::Push(int16 Value)
+void clsStackHandler::Push(int16_t Value)
 {
 	if (!clsStackHandler::isFull())
 	{
@@ -25,11 +25,11 @@ void clsStackHandler::Push(int16 Value)
 	}
 }
 
-int16 clsStackHandler::Pop(void)
+int16_t clsStackHandler::Pop(void)
 {
 	if (!clsStackHandler::isEmpty())
 	{
-		int16 TempValue = clsStackHandler::StackArray[Top];        //to clear the value after poping it
+		int16_t TempValue = clsStackHandler::StackArray[Top];        //to clear the value after poping it
 		clsStackHandler::StackArray[Top] = 0;
 		Top--;
 		return 	TempValue;
@@ -70,12 +70,12 @@ bool clsStackHandler::isFull()
 }
 
 
-int16 clsStackHandler::GetSize(void)
+int16_t clsStackHandler::GetSize(void)
 {
 	return Top + 1;
 }
 
-int16 clsStackHandler::Peek(uint16 Index)
+int16_t clsStackHandler::Peek(uint16_t Index)
 {
 
 	if (Index > 99)    //greater than the size of the stack
@@ -96,7 +96,7 @@ int16 clsStackHandler::Peek(uint16 Index)
 	}
 }
 
-void clsStackHandler::Change(uint16 Index, int16 Value)
+void clsStackHandler::Change(uint16_t Index, int16_t Value)
 {
 	if (Index < 99U)
 	{
@@ -113,7 +113,7 @@ void clsStackHandler::Display(void)
 {
 	if (!clsStackHandler::isEmpty())
 	{
-		for (int16 i = Top; i >= 0; i--)
+		for (int16_t i = Top; i >= 0; i--)
 		{
 			std::cout << "Index " << i << " = " << StackArray[i] << "\n";
 		}

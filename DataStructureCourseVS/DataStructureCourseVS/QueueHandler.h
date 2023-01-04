@@ -1,7 +1,6 @@
 #pragma once
 #include <stdio.h>
 #include <iostream>
-#include "TypeDef.h"
 #include <math.h>
 
 
@@ -22,19 +21,19 @@ public:
 	}
 
 
-	void Enqueue(int16 Value);
-	int16 Dequeue(void);
+	void Enqueue(int16_t Value);
+	int16_t Dequeue(void);
 	void DoInitialise(void);
 	bool isEmpty(void);
 	bool isFull(void);
-	int16 GetSize(void);
-	int16 Peek(uint16 Index);
-	void Change(uint16 Index, int16 Value);
+	int16_t GetSize(void);
+	int16_t Peek(uint16_t Index);
+	void Change(uint16_t Index, int16_t Value);
 	void Display(void);
 
-	int16 QueueArray[100];
-	int16 Last = -1;
-	int16 Fisrt = 0;
+	int16_t QueueArray[100];
+	int16_t Last = -1;
+	int16_t Fisrt = 0;
 
 protected:
 

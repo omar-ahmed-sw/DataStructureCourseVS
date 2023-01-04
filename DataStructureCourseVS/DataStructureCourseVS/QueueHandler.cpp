@@ -4,14 +4,14 @@
 
 void clsQueueHandler::DoInitialise(void)
 {
-	for (uint16 i = 0U; i < 100U; i++)
+	for (uint16_t i = 0U; i < 100U; i++)
 	{
 		clsQueueHandler::QueueArray[i] = 0;
 	}
 }
 
 
-void clsQueueHandler::Enqueue(int16 Value)
+void clsQueueHandler::Enqueue(int16_t Value)
 {
 	if (!clsQueueHandler::isFull())
 	{
@@ -25,14 +25,14 @@ void clsQueueHandler::Enqueue(int16 Value)
 	}
 }
 
-int16 clsQueueHandler::Dequeue(void)
+int16_t clsQueueHandler::Dequeue(void)
 {
 	if (!clsQueueHandler::isEmpty())
 	{
-		int16 TempValue = clsQueueHandler::QueueArray[0];        //to clear the value after popping it
+		int16_t TempValue = clsQueueHandler::QueueArray[0];        //to clear the value after popping it
 
 																 //shift the queue forward one step
-		for (uint16 i = 0U; i <= Last; i++)
+		for (uint16_t i = 0U; i <= Last; i++)
 		{
 			clsQueueHandler::QueueArray[i] = clsQueueHandler::QueueArray[i + 1];
 		}
@@ -76,12 +76,12 @@ bool clsQueueHandler::isFull()
 }
 
 
-int16 clsQueueHandler::GetSize(void)
+int16_t clsQueueHandler::GetSize(void)
 {
 	return Last + 1;
 }
 
-int16 clsQueueHandler::Peek(uint16 Index)
+int16_t clsQueueHandler::Peek(uint16_t Index)
 {
 
 	if (Index > 99)    //greater than the size of the stack
@@ -102,7 +102,7 @@ int16 clsQueueHandler::Peek(uint16 Index)
 	}
 }
 
-void clsQueueHandler::Change(uint16 Index, int16 Value)
+void clsQueueHandler::Change(uint16_t Index, int16_t Value)
 {
 	if (Index < 99U)
 	{
@@ -119,7 +119,7 @@ void clsQueueHandler::Display(void)
 {
 	if (!clsQueueHandler::isEmpty())
 	{
-		for (int16 i = Last; i >= 0; i--)
+		for (int16_t i = Last; i >= 0; i--)
 		{
 			std::cout << "Index " << i << " = " << QueueArray[i] << "\t";
 		}

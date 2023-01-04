@@ -2,7 +2,6 @@
 
 #include <stdio.h>
 #include <iostream>
-#include "TypeDef.h"
 #include <math.h>
 
 
@@ -20,18 +19,18 @@ public:
 	}
 
 
-	void Push(int16 Value);
-	int16 Pop(void);
+	void Push(int16_t Value);
+	int16_t Pop(void);
 	void DoInitialise(void);
 	bool isEmpty(void);
 	bool isFull(void);
-	int16 GetSize(void);
-	int16 Peek(uint16 Index);
-	void Change(uint16 Index, int16 Value);
+	int16_t GetSize(void);
+	int16_t Peek(uint16_t Index);
+	void Change(uint16_t Index, int16_t Value);
 	void Display(void);
 
-	int16 StackArray[100];
-	int16 Top = -1;
+	int16_t StackArray[100];
+	int16_t Top = -1;
 
 protected:
 
