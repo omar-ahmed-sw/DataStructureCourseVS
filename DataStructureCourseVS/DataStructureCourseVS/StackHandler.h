@@ -7,6 +7,8 @@
 
 using namespace std;
 
+constexpr uint32_t stacksize = 100U;
+
 
 class clsStackHandler {
 
@@ -29,7 +31,7 @@ public:
 	void Change(uint16_t Index, int16_t Value);
 	void Display(void);
 
-	int16_t StackArray[100];
+	int16_t StackArray[stacksize];
 	int16_t Top = -1;
 
 protected:

@@ -8,7 +8,7 @@ using namespace std;
 
 
 
-
+constexpr uint32_t queuesize = 100U;
 
 class clsQueueHandler {
 
@@ -31,7 +31,7 @@ public:
 	void Change(uint16_t Index, int16_t Value);
 	void Display(void);
 
-	int16_t QueueArray[100];
+	int16_t QueueArray[queuesize];
 	int16_t Last = -1;
 	int16_t Fisrt = 0;
 

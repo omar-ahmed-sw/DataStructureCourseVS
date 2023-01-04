@@ -4,7 +4,7 @@
 
 void clsStackHandler::DoInitialise(void)
 {
-	for (uint16_t i = 0U; i < 100U; i++)
+	for (uint16_t i = 0U; i < stacksize; i++)
 	{
 		clsStackHandler::StackArray[i] = 0;
 	}
@@ -58,7 +58,7 @@ bool clsStackHandler::isEmpty()
 
 bool clsStackHandler::isFull()
 {
-	if (Top == 99)
+	if (Top == (stacksize - 1U))
 	{
 		return true;
 	}
@@ -75,10 +75,11 @@ int16_t clsStackHandler::GetSize(void)
 	return Top + 1;
 }
 
+
+//get a certain element by its index
 int16_t clsStackHandler::Peek(uint16_t Index)
 {
-
-	if (Index > 99)    //greater than the size of the stack
+	if (Index > (stacksize - 1U))    //greater than the size of the stack
 	{
 		std::cout << "\nThe index is outside the stack\n";
 		return std::nan("NAN");
@@ -98,7 +99,7 @@ int16_t clsStackHandler::Peek(uint16_t Index)
 
 void clsStackHandler::Change(uint16_t Index, int16_t Value)
 {
-	if (Index < 99U)
+	if (Index < (stacksize - 1U))
 	{
 		StackArray[Index] = Value;
 	}

@@ -4,7 +4,7 @@
 
 void clsQueueHandler::DoInitialise(void)
 {
-	for (uint16_t i = 0U; i < 100U; i++)
+	for (uint16_t i = 0U; i < (queuesize - 1U); i++)
 	{
 		clsQueueHandler::QueueArray[i] = 0;
 	}
@@ -64,7 +64,7 @@ bool clsQueueHandler::isEmpty()
 
 bool clsQueueHandler::isFull()
 {
-	if (Last == 99)
+	if (Last == (queuesize - 1U))
 	{
 		return true;
 	}
@@ -83,8 +83,7 @@ int16_t clsQueueHandler::GetSize(void)
 
 int16_t clsQueueHandler::Peek(uint16_t Index)
 {
-
-	if (Index > 99)    //greater than the size of the stack
+	if (Index > (queuesize - 1U))    //greater than the size of the stack
 	{
 		std::cout << "\nThe index is outside the queue\n";
 		return std::nan("NAN");
@@ -104,7 +103,7 @@ int16_t clsQueueHandler::Peek(uint16_t Index)
 
 void clsQueueHandler::Change(uint16_t Index, int16_t Value)
 {
-	if (Index < 99U)
+	if (Index < (queuesize - 1U))
 	{
 		QueueArray[Index] = Value;
 	}
