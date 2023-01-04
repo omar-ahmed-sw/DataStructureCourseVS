@@ -15,7 +15,7 @@ clsSinglyLinkedList::clsSinglyLinkedList(clsNode* n)
 }
 
 //to check if the key exists in the linked list or not to avoid duplication
-clsNode* clsSinglyLinkedList::KeyExist(uint16 K)
+clsNode* clsSinglyLinkedList::KeyExist(uint16_t K)
 {
 	//create a temp node points to null to return it in case we didn't find the key
 	clsNode* NullNode = NULL;
@@ -92,7 +92,7 @@ void clsSinglyLinkedList::PrependNode(clsNode* n)
 	}
 }
 
-void clsSinglyLinkedList::DeleteNode(uint16 K)
+void clsSinglyLinkedList::DeleteNode(uint16_t K)
 {
 	if (clsSinglyLinkedList::KeyExist(K) == NULL)
 	{
@@ -127,7 +127,7 @@ void clsSinglyLinkedList::DeleteNode(uint16 K)
 
 
 //insert a node after a certain node in the list
-void clsSinglyLinkedList::InsertNode(uint16 K, clsNode* n)
+void clsSinglyLinkedList::InsertNode(uint16_t K, clsNode* n)
 {
 	if (clsSinglyLinkedList::KeyExist(K) == NULL)
 	{
@@ -155,7 +155,7 @@ void clsSinglyLinkedList::InsertNode(uint16 K, clsNode* n)
 }
 
 
-void clsSinglyLinkedList::ChangeNode(uint16 K, int16 D)
+void clsSinglyLinkedList::ChangeNode(uint16_t K, int16_t D)
 {
 	if (clsSinglyLinkedList::KeyExist(K) == NULL)
 	{
@@ -175,7 +175,7 @@ void clsSinglyLinkedList::ChangeNode(uint16 K, int16 D)
 	}
 }
 
-void clsSinglyLinkedList::DisplayNode(uint16 K)
+void clsSinglyLinkedList::DisplayNode(uint16_t K)
 {
 	if (clsSinglyLinkedList::KeyExist(K) == NULL)
 	{

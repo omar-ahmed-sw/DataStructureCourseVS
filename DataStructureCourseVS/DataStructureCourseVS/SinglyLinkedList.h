@@ -21,12 +21,12 @@ public:
 
 	void AppendNode(clsNode* n);
 	void PrependNode(clsNode* n);
-	void InsertNode(uint16 K, clsNode* n);
-	void DeleteNode(uint16 K);
-	void ChangeNode(uint16 K, int16 D);
+	void InsertNode(uint16_t K, clsNode* n);
+	void DeleteNode(uint16_t K);
+	void ChangeNode(uint16_t K, int16_t D);
 	void DisplayLinkedList(void);
-	void DisplayNode(uint16 K);
-	clsNode* KeyExist(uint16 K);
+	void DisplayNode(uint16_t K);
+	clsNode* KeyExist(uint16_t K);
 
 protected:
 

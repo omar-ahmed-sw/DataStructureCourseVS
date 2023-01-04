@@ -1,14 +1,13 @@
 #pragma once
 #include <stdio.h>
 #include <iostream>
-#include "TypeDef.h"
 #include <math.h>
 
 class clsNode
 {
 public:
-	int32 m_i32Data;
-	uint32 m_u32Key;
+	int32_t m_i32Data;
+	uint32_t m_u32Key;
 	clsNode* m_pPrevious; //only being used in doubly linked list
 	clsNode* m_pNext;
 
@@ -20,7 +19,7 @@ public:
 		m_pNext = NULL;
 	}
 
-	clsNode(uint32 k, int32 d)
+	clsNode(uint32_t k, int32_t d)
 	{
 		m_u32Key = k;
 		m_i32Data = d;
